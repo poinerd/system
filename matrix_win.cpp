@@ -13,6 +13,8 @@ void gotoxy(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
+
+
 // Custom helper to change the text color in the Windows terminal
 void setColor(int color) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
@@ -40,11 +42,11 @@ int main() {
 
     // Clear the screen once at startup
     system("cls");
+    system("mkdir hey");
 
     while (true) {
         for (int x = 0; x < width; ++x) {
             int current_y = rain_drop_y[x];
-
             // 1. Draw the leading edge (Bright White)
             if (current_y >= 0 && current_y < height) {
                 char random_char = characters[std::rand() % characters.length()];
@@ -79,6 +81,8 @@ int main() {
         // Native Windows sleep command (50 milliseconds)
         Sleep(50);
     }
+
+    // This is the function that voices the stuff
 
     return 0;
 }
